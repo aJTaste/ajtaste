@@ -1,0 +1,167 @@
+:root {
+  --white1: #ffffff;
+  --white2: #f9f9f9;
+  --white3: #f1f1f1;
+  --gray1: #e0e0e0;
+  --gray2: #bdbdbd;
+  --gray3: #888888;
+  --gray4: #555555;
+  --black1: #333333;
+  --black2: #212121;
+  --black3: #000000;
+  --main: #0097a7;
+}
+
+body {
+  margin: 0;
+  font-family: "Noto Sans JP", sans-serif;
+  background: var(--white3);
+  color: var(--black2);
+}
+
+a {
+  color: var(--black3);
+  text-decoration: none;
+}
+
+.container {
+  display: flex;
+  height: 100vh;
+}
+
+.sidebar {
+  width: 260px;
+  background: var(--main);
+  color: var(--white1);
+  padding: 1rem 0.75rem;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  user-select: none;
+}
+
+.nav-main {
+  margin-top: 4rem;
+}
+
+.nav-main ul,
+.nav-sub ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.nav-main ul li,
+.nav-sub ul li {
+  margin: 0;
+}
+
+.nav-main ul li a,
+.nav-sub ul li a {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border-radius: 6px;
+  font-weight: 500;
+  color: var(--white1);
+  transition: background-color 0.2s, color 0.2s, padding-left 0.2s;
+  box-sizing: border-box;
+}
+
+.nav-main ul li a {
+  font-size: 1.15rem;
+}
+
+.nav-sub ul li a {
+  font-size: 1rem;
+  opacity: 0.9;
+}
+
+.nav-main ul li a:hover,
+.nav-sub ul li a:hover {
+  background-color: rgba(255, 255, 255, 0.85);
+  color: var(--main);
+  padding-left: 1.2rem;
+}
+
+.sidebar .material-icons {
+  margin-right: 8px;
+  font-size: 1.5rem;
+}
+
+.main {
+  flex: 1;
+  padding: 2.5rem;
+  box-sizing: border-box;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.cards-wrapper {
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 0;
+  width: 100%;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  width: 960px;
+  max-width: 100%;
+}
+
+.card {
+  position: relative;
+  background: var(--white1);
+  padding: 2.5rem 1.5rem;
+  border: 1px solid var(--gray1);
+  border-radius: 8px;
+  text-align: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+  color: var(--black3);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+}
+
+.card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.card .material-icons {
+  font-size: 3rem;
+  color: var(--main);
+  margin-bottom: 1rem;
+}
+
+.card p {
+  margin: 0;
+  font-size: 1.2rem;
+  color: inherit;
+}
+
+.school-mode-status {
+  position: absolute;
+  bottom: 0.75rem;
+  right: 1rem;
+  font-size: 0.9rem;
+  color: var(--black3);
+  user-select: none;
+  pointer-events: none;
+}

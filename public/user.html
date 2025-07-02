@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+  <title>マイページ</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="main">
+    <h1>マイページ</h1>
+
+    <section class="card">
+      <form id="account-form">
+        <label>
+          本名<br />
+          <input type="text" id="realname" />
+        </label><br /><br />
+        <label>
+          ニックネーム<br />
+          <input type="text" id="nickname" />
+        </label><br /><br />
+        <label>
+          ログインID<br />
+          <input type="text" id="userid" disabled />
+        </label><br /><br />
+        <button type="submit">保存</button>
+      </form>
+    </section>
+
+    <br />
+
+    <section class="card">
+      <button id="logout-button" style="background:#e53935;color:white;padding:0.5rem 1rem;border:none;border-radius:6px;cursor:pointer;">
+        ログアウト（データ削除）
+      </button>
+    </section>
+  </main>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+  const realnameInput = document.getElementById("realname");
+  const nicknameInput = document.getElementById("nickname");
+  const useridInput = document.getElementById("userid");
+  const form = document.getElementById("account-form");
+  const logoutBtn = document.getElementById("logout-button");
+
+  // localStorage から値を読み込みフォームに反映
+  realnameInput.value = localStorage.getItem("realname") || "";
+  nicknameInput.value = localStorage.getItem("nickname") || "";
+  useridInput.value = localStorage.getItem("userid") || "";
+
+  // フォーム送信時に localStorage を更新
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
+    localStorage.setItem("realname", realnameInput.value.trim());
+    localStorage.setItem("nickname", nicknameInput.value.trim());
+    alert("情報を保存しました。");
+  });
+
+  // ログアウトボタン押下時 localStorage をクリアして登録画面へ
+  logoutBtn.addEventListener("click", () => {
+    if (confirm("ログアウトしますか？ 登録情報は削除されます。")) {
+      localStorage.clear();
+      window.location.href = "register.html";
+    }
+  });
+});
+
+  </script>
+</body>
+</html>
